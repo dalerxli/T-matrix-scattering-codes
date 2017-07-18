@@ -1,0 +1,14 @@
+   1                                ! K
+1.2    0.03                        ! RI
+1.      D-15                        ! EPS
+1.      D-15                        ! EPS1
+1.      D-05                        ! EPS2
+10.                                 ! WVL
+   1                                ! icx:1-Rv, 2-Xv, 3-c, 4-cksi0, 5-Xc
+   1                                ! NRv
+7.                                 ! aRv0
+0.5                                 ! dRv
+  20                                ! NALF
+   0                                ! IAL0
+   5                                ! IDAL
+14.0                                 ! a/b

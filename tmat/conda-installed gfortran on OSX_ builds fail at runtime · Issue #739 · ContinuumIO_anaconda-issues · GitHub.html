@@ -1,0 +1,1466 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+
+
+  <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-d48d0c441ed0ab66aa7d582c5aaf762f4a1eef9a915871a36ddb07e71b01ffb2.css" integrity="sha256-1I0MRB7Qq2aqfVgsWq92L0oe75qRWHGjbdsH5xsB/7I=" media="all" rel="stylesheet" />
+  <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-a6456108ae38d5ef012503fd17ca8d53dc8721f183c4cbff9418f8513ec0d238.css" integrity="sha256-pkVhCK441e8BJQP9F8qNU9yHIfGDxMv/lBj4UT7A0jg=" media="all" rel="stylesheet" />
+  
+  
+  <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/site-7f1a41ba2b363d8328a1603010c1c34aa7da36bd92ed8693a262fc5b703f2b10.css" integrity="sha256-fxpBuis2PYMooWAwEMHDSqfaNr2S7YaTomL8W3A/KxA=" media="all" rel="stylesheet" />
+  
+
+  <meta name="viewport" content="width=device-width">
+  
+  <title>conda-installed gfortran on OSX: builds fail at runtime · Issue #739 · ContinuumIO/anaconda-issues · GitHub</title>
+  <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
+  <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+  <meta property="fb:app_id" content="1401488693436528">
+
+    
+    <meta content="https://avatars0.githubusercontent.com/u/9097307?v=3&amp;s=400" property="og:image" /><meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="conda-installed gfortran on OSX: builds fail at runtime · Issue #739 · ContinuumIO/anaconda-issues" property="og:title" /><meta content="https://github.com/ContinuumIO/anaconda-issues/issues/739" property="og:url" /><meta content="I distribute a Python package that includes f2py-compiled Fortran extensions. I want to use conda to package this (for my students and other users) as a self-contained environment including gfortra..." property="og:description" />
+
+  <link rel="assets" href="https://assets-cdn.github.com/">
+  
+  <meta name="pjax-timeout" content="1000">
+  
+  <meta name="request-id" content="FB40:246F5:605E6C:90A219:59322A8C" data-pjax-transient>
+  
+
+  <meta name="selected-link" value="repo_issues" data-pjax-transient>
+
+  <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+<meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+    <meta name="google-analytics" content="UA-3769691-2">
+
+<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="https://collector.githubapp.com/github-external/browser_event" name="octolytics-event-url" /><meta content="FB40:246F5:605E6C:90A219:59322A8C" name="octolytics-dimension-request_id" /><meta content="sea" name="octolytics-dimension-region_edge" /><meta content="iad" name="octolytics-dimension-region_render" />
+<meta content="/&lt;user-name&gt;/&lt;repo-name&gt;/issues/show" data-pjax-transient="true" name="analytics-location" />
+
+
+
+
+  <meta class="js-ga-set" name="dimension1" content="Logged Out">
+
+
+  
+
+      <meta name="hostname" content="github.com">
+  <meta name="user-login" content="">
+
+      <meta name="expected-hostname" content="github.com">
+    <meta name="js-proxy-site-detection-payload" content="NWQ5YTY3Y2U4ZDE4MGJiZDU3YzliZjU3YTk2YjU4YWZlYmQyYmI4Mjc0NDA2OWIzNzQxOTgyMmQ0NjUyN2M4Znx7InJlbW90ZV9hZGRyZXNzIjoiMTMxLjE5MS42NC40MSIsInJlcXVlc3RfaWQiOiJGQjQwOjI0NkY1OjYwNUU2Qzo5MEEyMTk6NTkzMjJBOEMiLCJ0aW1lc3RhbXAiOjE0OTY0NTk5MTYsImhvc3QiOiJnaXRodWIuY29tIn0=">
+
+
+  <meta name="html-safe-nonce" content="244bb4f637d792a4b1197b19f07144b760e66a31">
+
+  <meta http-equiv="x-pjax-version" content="8d98c4100cb1523592ea4bb1476ff0c3">
+  
+
+    
+  <meta name="description" content="anaconda-issues - Anaconda issue tracking">
+  <meta name="go-import" content="github.com/ContinuumIO/anaconda-issues git https://github.com/ContinuumIO/anaconda-issues.git">
+
+  <meta content="1158637" name="octolytics-dimension-user_id" /><meta content="ContinuumIO" name="octolytics-dimension-user_login" /><meta content="11665526" name="octolytics-dimension-repository_id" /><meta content="ContinuumIO/anaconda-issues" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="11665526" name="octolytics-dimension-repository_network_root_id" /><meta content="ContinuumIO/anaconda-issues" name="octolytics-dimension-repository_network_root_nwo" /><meta content="false" name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" />
+  <link href="https://github.com/ContinuumIO/anaconda-issues/commits/master.atom" rel="alternate" title="Recent Commits to anaconda-issues:master" type="application/atom+xml">
+
+
+
+
+  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+
+  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+
+  <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#000000">
+  <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+<meta name="theme-color" content="#1e2327">
+
+
+
+  </head>
+
+  <body class="logged-out env-production emoji-size-boost">
+    
+
+
+
+  <div class="position-relative js-header-wrapper ">
+    <a href="#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+    <div id="js-pjax-loader-bar" class="pjax-loader-bar"><div class="progress"></div></div>
+
+    
+    
+    
+
+
+
+          <header class="site-header js-details-container Details" role="banner">
+  <div class="site-nav-container">
+    <a class="header-logo-invertocat" href="https://github.com/" aria-label="Homepage" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark">
+      <svg aria-hidden="true" class="octicon octicon-mark-github" height="32" version="1.1" viewBox="0 0 16 16" width="32"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+    </a>
+
+    <button class="btn-link float-right site-header-toggle js-details-target" type="button" aria-label="Toggle navigation">
+      <svg aria-hidden="true" class="octicon octicon-three-bars" height="24" version="1.1" viewBox="0 0 12 16" width="18"><path fill-rule="evenodd" d="M11.41 9H.59C0 9 0 8.59 0 8c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4H.59C0 5 0 4.59 0 4c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM.59 11H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1H.59C0 13 0 12.59 0 12c0-.59 0-1 .59-1z"/></svg>
+    </button>
+
+    <div class="site-header-menu">
+      <nav class="site-header-nav">
+        <a href="/features" class="js-selected-navigation-item nav-item" data-ga-click="Header, click, Nav menu - item:features" data-selected-links="/features /features">
+          Features
+</a>        <a href="/business" class="js-selected-navigation-item nav-item" data-ga-click="Header, click, Nav menu - item:business" data-selected-links="/business /business/security /business/customers /business">
+          Business
+</a>        <a href="/explore" class="js-selected-navigation-item nav-item" data-ga-click="Header, click, Nav menu - item:explore" data-selected-links="/explore /trending /trending/developers /integrations /integrations/feature/code /integrations/feature/collaborate /integrations/feature/ship /showcases /explore">
+          Explore
+</a>            <a href="/marketplace" class="js-selected-navigation-item nav-item" data-ga-click="Header, click, Nav menu - item:marketplace" data-selected-links=" /marketplace">
+              Marketplace
+</a>        <a href="/pricing" class="js-selected-navigation-item nav-item" data-ga-click="Header, click, Nav menu - item:pricing" data-selected-links="/pricing /pricing/developer /pricing/team /pricing/business-hosted /pricing/business-enterprise /pricing">
+          Pricing
+</a>      </nav>
+
+      <div class="site-header-actions">
+          <div class="header-search scoped-search site-scoped-search js-site-search" role="search">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/ContinuumIO/anaconda-issues/search" class="js-site-search-form" data-scoped-search-url="/ContinuumIO/anaconda-issues/search" data-unscoped-search-url="/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+    <label class="form-control header-search-wrapper js-chromeless-input-container">
+        <a href="/ContinuumIO/anaconda-issues/issues/739" class="header-search-scope no-underline">This repository</a>
+      <input type="text"
+        class="form-control header-search-input js-site-search-focus js-site-search-field is-clearable"
+        data-hotkey="s"
+        name="q"
+        value=""
+        placeholder="Search"
+        aria-label="Search this repository"
+        data-unscoped-placeholder="Search GitHub"
+        data-scoped-placeholder="Search"
+        autocapitalize="off">
+        <input type="hidden" class="js-site-search-type-field" name="type" >
+    </label>
+</form></div>
+
+
+          <a class="text-bold site-header-link" href="/login?return_to=%2FContinuumIO%2Fanaconda-issues%2Fissues%2F739" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in">Sign in</a>
+            <span class="text-gray">or</span>
+            <a class="text-bold site-header-link" href="/join?source=header-repo" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up">Sign up</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  </div>
+
+  <div id="start-of-content" class="accessibility-aid"></div>
+
+    <div id="js-flash-container">
+</div>
+
+
+
+  <div role="main">
+        <div itemscope itemtype="http://schema.org/SoftwareSourceCode">
+    <div id="js-repo-pjax-container" data-pjax-container>
+        
+
+
+
+
+    <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav">
+      <div class="container repohead-details-container">
+
+        <ul class="pagehead-actions">
+  <li>
+      <a href="/login?return_to=%2FContinuumIO%2Fanaconda-issues"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+    aria-label="You must be signed in to watch a repository" rel="nofollow">
+    <svg aria-hidden="true" class="octicon octicon-eye" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
+    Watch
+  </a>
+  <a class="social-count" href="/ContinuumIO/anaconda-issues/watchers"
+     aria-label="91 users are watching this repository">
+    91
+  </a>
+
+  </li>
+
+  <li>
+      <a href="/login?return_to=%2FContinuumIO%2Fanaconda-issues"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+    aria-label="You must be signed in to star a repository" rel="nofollow">
+    <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"/></svg>
+    Star
+  </a>
+
+    <a class="social-count js-social-count" href="/ContinuumIO/anaconda-issues/stargazers"
+      aria-label="125 users starred this repository">
+      125
+    </a>
+
+  </li>
+
+  <li>
+      <a href="/login?return_to=%2FContinuumIO%2Fanaconda-issues"
+        class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+        aria-label="You must be signed in to fork a repository" rel="nofollow">
+        <svg aria-hidden="true" class="octicon octicon-repo-forked" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+        Fork
+      </a>
+
+    <a href="/ContinuumIO/anaconda-issues/network" class="social-count"
+       aria-label="18 users forked this repository">
+      18
+    </a>
+  </li>
+</ul>
+
+        <h1 class="public ">
+  <svg aria-hidden="true" class="octicon octicon-repo" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+  <span class="author" itemprop="author"><a href="/ContinuumIO" class="url fn" rel="author">ContinuumIO</a></span><!--
+--><span class="path-divider">/</span><!--
+--><strong itemprop="name"><a href="/ContinuumIO/anaconda-issues" data-pjax="#js-repo-pjax-container">anaconda-issues</a></strong>
+
+</h1>
+
+      </div>
+      <div class="container">
+        
+<nav class="reponav js-repo-nav js-sidenav-container-pjax"
+     itemscope
+     itemtype="http://schema.org/BreadcrumbList"
+     role="navigation"
+     data-pjax="#js-repo-pjax-container">
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a href="/ContinuumIO/anaconda-issues" class="js-selected-navigation-item reponav-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /ContinuumIO/anaconda-issues" itemprop="url">
+      <svg aria-hidden="true" class="octicon octicon-code" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg>
+      <span itemprop="name">Code</span>
+      <meta itemprop="position" content="1">
+</a>  </span>
+
+    <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a href="/ContinuumIO/anaconda-issues/issues" class="js-selected-navigation-item selected reponav-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /ContinuumIO/anaconda-issues/issues" itemprop="url">
+        <svg aria-hidden="true" class="octicon octicon-issue-opened" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg>
+        <span itemprop="name">Issues</span>
+        <span class="Counter">685</span>
+        <meta itemprop="position" content="2">
+</a>    </span>
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a href="/ContinuumIO/anaconda-issues/pulls" class="js-selected-navigation-item reponav-item" data-hotkey="g p" data-selected-links="repo_pulls /ContinuumIO/anaconda-issues/pulls" itemprop="url">
+      <svg aria-hidden="true" class="octicon octicon-git-pull-request" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+      <span itemprop="name">Pull requests</span>
+      <span class="Counter">0</span>
+      <meta itemprop="position" content="3">
+</a>  </span>
+
+    <a href="/ContinuumIO/anaconda-issues/projects" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /ContinuumIO/anaconda-issues/projects">
+      <svg aria-hidden="true" class="octicon octicon-project" height="16" version="1.1" viewBox="0 0 15 16" width="15"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
+      Projects
+      <span class="Counter" >0</span>
+</a>
+
+
+    <div class="reponav-dropdown js-menu-container">
+      <button type="button" class="btn-link reponav-item reponav-dropdown js-menu-target " data-no-toggle aria-expanded="false" aria-haspopup="true">
+        Insights
+        <svg aria-hidden="true" class="octicon octicon-triangle-down v-align-middle text-gray" height="11" version="1.1" viewBox="0 0 12 16" width="8"><path fill-rule="evenodd" d="M0 5l6 6 6-6z"/></svg>
+      </button>
+      <div class="dropdown-menu-content js-menu-content">
+        <div class="dropdown-menu dropdown-menu-sw">
+          <a class="dropdown-item" href="/ContinuumIO/anaconda-issues/pulse" data-skip-pjax>
+            <svg aria-hidden="true" class="octicon octicon-pulse" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M11.5 8L8.8 5.4 6.6 8.5 5.5 1.6 2.38 8H0v2h3.6l.9-1.8.9 5.4L9 8.5l1.6 1.5H14V8z"/></svg>
+            Pulse
+          </a>
+          <a class="dropdown-item" href="/ContinuumIO/anaconda-issues/graphs" data-skip-pjax>
+            <svg aria-hidden="true" class="octicon octicon-graph" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"/></svg>
+            Graphs
+          </a>
+        </div>
+      </div>
+    </div>
+</nav>
+
+      </div>
+    </div>
+
+<div class="container new-discussion-timeline experiment-repo-nav">
+  <div class="repository-content">
+
+    
+          
+<style type="text/css" media="screen">
+  span.labelstyle-fef2c0, .linked-labelstyle-fef2c0 {  background-color: #fef2c0 !important;  color: #333026 !important;}.labelstyle-fef2c0.selected {  background-color: #fef2c0 !important;  color: #333026 !important;}.label-select-menu .labelstyle-fef2c0.selected {  background:rgba(254, 242, 192, 0.12) !important;  color: #989173 !important;}
+
+span.labelstyle-d4c5f9, .linked-labelstyle-d4c5f9 {  background-color: #d4c5f9 !important;  color: #2b2833 !important;}.labelstyle-d4c5f9.selected {  background-color: #d4c5f9 !important;  color: #2b2833 !important;}.label-select-menu .labelstyle-d4c5f9.selected {  background:rgba(212, 197, 249, 0.12) !important;  color: #827999 !important;}
+
+span.labelstyle-fbca04, .linked-labelstyle-fbca04 {  background-color: #fbca04 !important;  color: #332900 !important;}.labelstyle-fbca04.selected {  background-color: #fbca04 !important;  color: #332900 !important;}.label-select-menu .labelstyle-fbca04.selected {  background:rgba(251, 202, 4, 0.12) !important;  color: #997b02 !important;}
+
+span.labelstyle-1d76db, .linked-labelstyle-1d76db {  background-color: #1d76db !important;  color: #fff !important;}.labelstyle-1d76db.selected {  background-color: #1d76db !important;  color: #fff !important;}.label-select-menu .labelstyle-1d76db.selected {  background:rgba(29, 118, 219, 0.12) !important;  color: #145299 !important;}
+
+span.labelstyle-bfdadc, .linked-labelstyle-bfdadc {  background-color: #bfdadc !important;  color: #2c3233 !important;}.labelstyle-bfdadc.selected {  background-color: #bfdadc !important;  color: #2c3233 !important;}.label-select-menu .labelstyle-bfdadc.selected {  background:rgba(191, 218, 220, 0.12) !important;  color: #849799 !important;}
+
+span.labelstyle-ededed, .linked-labelstyle-ededed {  background-color: #ededed !important;  color: #333333 !important;}.labelstyle-ededed.selected {  background-color: #ededed !important;  color: #333333 !important;}.label-select-menu .labelstyle-ededed.selected {  background:rgba(237, 237, 237, 0.12) !important;  color: #999999 !important;}
+
+span.labelstyle-c2e0c6, .linked-labelstyle-c2e0c6 {  background-color: #c2e0c6 !important;  color: #2c332d !important;}.labelstyle-c2e0c6.selected {  background-color: #c2e0c6 !important;  color: #2c332d !important;}.label-select-menu .labelstyle-c2e0c6.selected {  background:rgba(194, 224, 198, 0.12) !important;  color: #849987 !important;}
+
+span.labelstyle-fc2929, .linked-labelstyle-fc2929 {  background-color: #fc2929 !important;  color: #fff !important;}.labelstyle-fc2929.selected {  background-color: #fc2929 !important;  color: #fff !important;}.label-select-menu .labelstyle-fc2929.selected {  background:rgba(252, 41, 41, 0.12) !important;  color: #991818 !important;}
+
+span.labelstyle-cc317c, .linked-labelstyle-cc317c {  background-color: #cc317c !important;  color: #fff !important;}.labelstyle-cc317c.selected {  background-color: #cc317c !important;  color: #fff !important;}.label-select-menu .labelstyle-cc317c.selected {  background:rgba(204, 49, 124, 0.12) !important;  color: #99245c !important;}
+</style>
+
+<div class="issues-listing" data-pjax>
+  
+  <div id="show_issue" class="js-issues-results">
+
+    
+  <div
+    id="partial-discussion-header"
+    class="gh-header js-details-container Details js-socket-channel js-updatable-content issue"
+    data-channel="issue:146700312"
+    data-url="/ContinuumIO/anaconda-issues/issues/739/show_partial?partial=issues%2Ftitle">
+
+  <div class="gh-header-show ">
+      <div class="gh-header-actions">
+
+          <a href="/ContinuumIO/anaconda-issues/issues/new" class="btn btn-sm btn-primary float-right" data-hotkey="c">
+            New issue
+          </a>
+      </div>
+
+    <h1 class="gh-header-title">
+      <span class="js-issue-title">
+        conda-installed gfortran on OSX: builds fail at runtime
+      </span>
+      <span class="gh-header-number">#739</span>
+    </h1>
+  </div>
+
+
+  <div class="TableObject gh-header-meta">
+    <div class="TableObject-item">
+        <div class="State State--red">
+          <svg aria-hidden="true" class="octicon octicon-issue-closed" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M7 10h2v2H7v-2zm2-6H7v5h2V4zm1.5 1.5l-1 1L12 9l4-4.5-1-1L12 7l-1.5-1.5zM8 13.7A5.71 5.71 0 0 1 2.3 8c0-3.14 2.56-5.7 5.7-5.7 1.83 0 3.45.88 4.5 2.2l.92-.92A6.947 6.947 0 0 0 8 1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7l-1.52 1.52c-.66 2.41-2.86 4.19-5.48 4.19v-.01z"/></svg>
+          Closed
+        </div>
+    </div>
+    <div class="TableObject-item TableObject-item--primary">
+        <a href="/brian-rose" class="author">brian-rose</a>  opened this <span class="noun">Issue</span>
+        <relative-time datetime="2016-04-07T17:59:53Z">Apr 7, 2016</relative-time>
+        &middot; 6 comments
+    </div>
+  </div>
+</div>
+
+
+    <h2 class="sr-only">Comments</h2>
+    <div id="discussion_bucket" class="clearfix">
+      <div class="discussion-sidebar">
+        <div id="partial-discussion-sidebar"
+  class="js-socket-channel js-updatable-content"
+  data-channel="issue:146700312"
+  data-url="/ContinuumIO/anaconda-issues/issues/739/show_partial?partial=issues%2Fsidebar">
+
+  <div class="discussion-sidebar-item sidebar-assignee js-discussion-sidebar-item">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/ContinuumIO/anaconda-issues/issues/739?partial=issues%2Fsidebar%2Fshow%2Fassignees" class="js-issue-sidebar-form" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="JA0OtZdEEI2/Kzdn8WT3SaEb8nfbEi+w00hLNumirelDURLKorc1DY8qY8O5V2Sxqd5e5nu9MmgRpg1rDiCVkA==" /></div>
+    
+
+  <div class="discussion-sidebar-heading text-bold">
+    Assignees
+  </div>
+
+    <span class="css-truncate">
+    No one assigned
+</span>
+
+</form></div>
+
+  <div class="discussion-sidebar-item sidebar-labels js-discussion-sidebar-item">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/ContinuumIO/anaconda-issues/issues/739?partial=issues%2Fsidebar%2Fshow%2Flabels" class="js-issue-sidebar-form" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="6RlsMPMe69l7yqN5PhDuXTcJ8j07Ke41YsBKOcEEhS6ORXBPxu3OWUvL9912I32lP8xerJuG8+2gLgxkJoa9Vw==" /></div>
+      
+
+  <div class="discussion-sidebar-heading text-bold">
+    Labels
+  </div>
+
+    <div class="labels css-truncate">
+    None yet
+</div>
+
+</form></div>
+
+    <div class="discussion-sidebar-item js-discussion-sidebar-item">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/ContinuumIO/anaconda-issues/projects/issues/739" class="js-issue-sidebar-form" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="b/AGIzajfpI91Cver3Gcls0nWMrrKDR16YyhE0pX1W9T0BGHNjbXT65v2lXCVE/i1XQzRHYA4i4iweIgwpVj/A==" /></div>
+    
+
+  <div class="discussion-sidebar-heading text-bold">
+    Projects
+  </div>
+
+    <span class="css-truncate">
+    None yet
+</span>
+
+</form></div>
+
+  <div class="discussion-sidebar-item sidebar-milestone js-discussion-sidebar-item">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/ContinuumIO/anaconda-issues/issues/739/set_milestone?partial=issues%2Fsidebar%2Fshow%2Fmilestone" class="js-issue-sidebar-form" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="hcxBEMY/hIdg0YQia+GLc55f9tIb7yp0q8U/c+0rvIw6vdJqMnaei7inUvf0AQmyk2yY32P+fUga/8kozBifMw==" /></div>
+    
+
+  <div class="discussion-sidebar-heading text-bold">
+    Milestone
+  </div>
+
+      No milestone
+
+</form></div>
+
+  
+  <div id="partial-users-participants" class="discussion-sidebar-item">
+  <div class="participation">
+
+    <div class="discussion-sidebar-heading text-bold">
+      3 participants
+    </div>
+    <div class="participation-avatars">
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="brian-rose" href="/brian-rose"><img alt="@brian-rose" class="avatar" height="26" src="https://avatars1.githubusercontent.com/u/9097307?v=3&amp;s=52" width="26" /> </a>
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="astrofrog" href="/astrofrog"><img alt="@astrofrog" class="avatar" height="26" src="https://avatars0.githubusercontent.com/u/314716?v=3&amp;s=52" width="26" /> </a>
+        <a class="participant-avatar tooltipped tooltipped-n" aria-label="mingwandroid" href="/mingwandroid"><img alt="@mingwandroid" class="avatar" height="26" src="https://avatars3.githubusercontent.com/u/1042804?v=3&amp;s=52" width="26" /> </a>
+    </div>
+  </div>
+</div>
+
+
+  
+
+</div>
+
+      </div>
+
+      <div class="discussion-timeline js-quote-selection-container ">
+
+        <div class="js-discussion js-socket-channel" data-channel="marked-as-read:issue:146700312">
+          
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/brian-rose">
+      <img alt="@brian-rose" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/9097307?v=3&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+
+<div id="issue-146700312"
+     class="comment previewable-edit timeline-comment js-comment js-task-list-container
+                     "
+     data-body-version="ddb3c6857c31ae6fbbd4ac25b1e93eba">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+        <a href="/brian-rose" class="author">brian-rose</a>
+        
+    </strong>
+
+    commented
+
+    <a href="#issue-146700312" class="timestamp"><relative-time datetime="2016-04-07T17:59:53Z">Apr 7, 2016</relative-time></a>
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>I distribute a <a href="https://github.com/brian-rose/climlab">Python package</a> that includes f2py-compiled Fortran extensions. I want to use conda to package this (for my students and other users) as a self-contained environment including gfortran. But I'm having trouble getting anything to compile and run on Mac OSX 10.11 with the conda-installed version of gfortran.</p>
+<p>A simple HelloWorld example fails at runtime:</p>
+<pre><code>conda create --name=test gcc
+source activate test
+</code></pre>
+<p>This then becomes the default gfortran version:</p>
+<pre><code>(test)suggestionbox_new:temp br546577$ which gfortran
+/Users/br546577/anaconda/envs/test/bin/gfortran
+</code></pre>
+<p>I then compile and try to run a 'hello world' program:</p>
+<pre><code>(test)suggestionbox_new:temp br546577$ gfortran hello.f90
+(test)suggestionbox_new:temp br546577$ ./a.out
+dyld: Library not loaded: @rpath/./libgfortran.3.dylib
+  Referenced from: /Users/br546577/Desktop/temp/./a.out
+  Reason: image not found
+Trace/BPT trap: 5
+</code></pre>
+<p>The same test works without error on linux.</p>
+<p>I've found several other reports of such library errors with conda and gfortran on OSX, e.g. <a href="https://github.com/ContinuumIO/anaconda-issues/issues/498" class="issue-link js-issue-link" data-url="https://github.com/ContinuumIO/anaconda-issues/issues/498" data-id="114147308" data-error-text="Failed to load issue title" data-permission-text="Issue title is private">#498</a>, <a href="https://github.com/ReactionMechanismGenerator/PyDAS/issues/8" class="issue-link js-issue-link" data-url="https://github.com/ReactionMechanismGenerator/PyDAS/issues/8" data-id="124498796" data-error-text="Failed to load issue title" data-permission-text="Issue title is private">ReactionMechanismGenerator/PyDAS#8</a></p>
+<p>It looks to me like the version of gfortran installed by conda is completely unusable.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/astrofrog">
+      <img alt="@astrofrog" class="avatar rounded-1" height="44" src="https://avatars3.githubusercontent.com/u/314716?v=3&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+
+<div id="issuecomment-238076905"
+     class="comment previewable-edit timeline-comment js-comment js-task-list-container
+                     "
+     data-body-version="c40b4f8b64f0164071c3dba3367caa9a">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+        <a href="/astrofrog" class="author">astrofrog</a>
+        
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-238076905" class="timestamp"><relative-time datetime="2016-08-07T11:21:01Z">Aug 7, 2016</relative-time></a>
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>I'm seeing this issue too!</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  
+      <div class="discussion-item discussion-item-ref">
+    <h3 class="discussion-item-header f5 text-normal" id="ref-issue-169790893">
+      <span class="discussion-item-icon">
+        <svg aria-hidden="true" class="octicon octicon-bookmark" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg>
+      </span>
+
+      <img alt="" class="avatar" height="16" src="https://avatars2.githubusercontent.com/u/314716?v=3&amp;s=32" width="16" />
+      <a href="/astrofrog" class="author" truncate="true">astrofrog</a>
+      
+
+      referenced
+      this issue
+        in <strong>conda/conda</strong>
+      <a class="timestamp" href="#ref-issue-169790893">
+        <relative-time datetime="2016-08-07T11:25:38Z">Aug 7, 2016</relative-time>
+      </a>
+    </h3>
+
+      <span class="State State--small ml-1 State--red float-right" title="State: closed">
+          <svg aria-hidden="true" class="octicon octicon-issue-opened" height="14" version="1.1" viewBox="0 0 14 16" width="12"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg>
+        Closed
+      </span>
+
+
+
+    <h4 class="discussion-item-ref-title">
+      <a href="/conda/conda/issues/3241" class="title-link">
+        Bug in gcc conda package: fortran executables fail
+        <span class="issue-num">#3241</span>
+</a>    </h4>
+    
+  </div>
+
+
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/mingwandroid">
+      <img alt="@mingwandroid" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/1042804?v=3&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+
+<div id="issuecomment-238101203"
+     class="comment previewable-edit timeline-comment js-comment js-task-list-container
+                     "
+     data-body-version="6d188cb7b2efa65c8f1da9cd8a638184">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+  </div>
+
+    
+    <span class="timeline-comment-label text-bold tooltipped tooltipped-multiline tooltipped-s" aria-label="This user is a member of the Continuum Analytics, Inc. organization.">
+      Member
+    </span>
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+        <a href="/mingwandroid" class="author">mingwandroid</a>
+        
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-238101203" class="timestamp"><relative-time datetime="2016-08-07T18:59:01Z">Aug 7, 2016</relative-time></a>
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="mingwandroid edited this comment 10 months ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>Well, it's the same <code>rpath</code> GCC flag that is common for GCC and gfortran on both Linux and OS X. This should work for you:</p>
+<pre><code>gfortran ~/gd.cio/hello.f90 -Wl,-rpath,${CONDA_PREFIX}/lib
+</code></pre>
+<p>.. alternatively you can post process the executable as follows:</p>
+<pre><code>install_name_tool -change @rpath/./libgfortran.3.dylib ${CONDA_PREFIX}/lib/libgfortran.3.dylib -change @rpath/./libquadmath.0.dylib ${CONDA_PREFIX}/lib/libquadmath.0.dylib a.out
+</code></pre>
+<p>You used to be able to use <code>DYLD_*</code> variables (specifically <code>DYLD_FALLBACK_LIBRARY_PATH</code>) to modify the behaviour of dyld, but Apple decided to reduce their attack vector surface area and removed them with the introduction of <code>SIP</code>.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/mingwandroid">
+      <img alt="@mingwandroid" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/1042804?v=3&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+
+<div id="issuecomment-238101357"
+     class="comment previewable-edit timeline-comment js-comment js-task-list-container
+                     "
+     data-body-version="97ff6571f4a9f08497dda9c571430ad1">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+  </div>
+
+    
+    <span class="timeline-comment-label text-bold tooltipped tooltipped-multiline tooltipped-s" aria-label="This user is a member of the Continuum Analytics, Inc. organization.">
+      Member
+    </span>
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+        <a href="/mingwandroid" class="author">mingwandroid</a>
+        
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-238101357" class="timestamp"><relative-time datetime="2016-08-07T19:01:14Z">Aug 7, 2016</relative-time></a>
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="mingwandroid edited this comment 10 months ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>I'm closing this as it's just how these things work. If you have any suggestions for improving it feel free to reopen.</p>
+<p>The reason it works on Linux is (probably!) because on that OS, <code>ld.so</code> will fallback to finding <code>/usr/lib/libgfortran.so</code> which will be more recent and backwards compatible.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  
+
+
+      
+
+
+  <div class="discussion-item discussion-item-closed">
+    <h3 class="discussion-item-header f5 text-normal" id="event-747747288">
+
+      <span class="discussion-item-icon">
+        <svg aria-hidden="true" class="octicon octicon-circle-slash" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm0 1.3c1.3 0 2.5.44 3.47 1.17l-8 8A5.755 5.755 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zm0 11.41c-1.3 0-2.5-.44-3.47-1.17l8-8c.73.97 1.17 2.17 1.17 3.47 0 3.14-2.56 5.7-5.7 5.7z"/></svg>
+      </span>
+      <img alt="" class="avatar" height="16" src="https://avatars1.githubusercontent.com/u/1042804?v=3&amp;s=32" width="16" />
+      <a href="/mingwandroid" class="author">mingwandroid</a>
+      
+      closed this
+      
+      
+      <a href="#event-747747288" class="timestamp"><relative-time class="timestamp" datetime="2016-08-07T19:01:14Z">Aug 7, 2016</relative-time></a>
+    </h3>
+  </div>
+
+  <div class="closed-banner"></div>
+
+
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/astrofrog">
+      <img alt="@astrofrog" class="avatar rounded-1" height="44" src="https://avatars3.githubusercontent.com/u/314716?v=3&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+
+<div id="issuecomment-238104774"
+     class="comment previewable-edit timeline-comment js-comment js-task-list-container
+                     "
+     data-body-version="90ca9277cee2dda64553f374591868c6">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+        <a href="/astrofrog" class="author">astrofrog</a>
+        
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-238104774" class="timestamp"><relative-time datetime="2016-08-07T20:01:36Z">Aug 7, 2016</relative-time></a>
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p><a href="https://github.com/mingwandroid" class="user-mention">@mingwandroid</a> - just out of curiosity, why does this not happen with the gcc compiler?</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/mingwandroid">
+      <img alt="@mingwandroid" class="avatar rounded-1" height="44" src="https://avatars0.githubusercontent.com/u/1042804?v=3&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+
+<div id="issuecomment-238105934"
+     class="comment previewable-edit timeline-comment js-comment js-task-list-container
+                     "
+     data-body-version="5f61719a4f0eb88d5319e95fdea8ad20">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+  </div>
+
+    
+    <span class="timeline-comment-label text-bold tooltipped tooltipped-multiline tooltipped-s" aria-label="This user is a member of the Continuum Analytics, Inc. organization.">
+      Member
+    </span>
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+        <a href="/mingwandroid" class="author">mingwandroid</a>
+        
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-238105934" class="timestamp"><relative-time datetime="2016-08-07T20:20:37Z">Aug 7, 2016</relative-time></a>
+
+
+      &#8226;
+      <span class="timestamp timestamp-edited tooltipped tooltipped-n"
+            aria-label="mingwandroid edited this comment 10 months ago">
+          edited
+      </span>
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>Because on OS X, the standard C library is implemented in <code>libSystem.dylib</code> and that is present on all systems in <code>/usr/lib/libSystem.dylib</code>.</p>
+<p>A default fortran standard library doesn't ship with the OS so we must provide one.</p>
+<p>Conda's dynamic libraries (on OS X and Linux) are always identified via relative paths so that our environments are trivially relocatable (that is a requirement for hardlinks to work, and is just nicer than the alternative).  You can see the functions used to enforce this here:</p>
+<p><a href="https://github.com/conda/conda-build/blob/master/conda_build/post.py#L264-L307">https://github.com/conda/conda-build/blob/master/conda_build/post.py#L264-L307</a></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  
+  <div class="discussion-item discussion-item-ref">
+    <h3 class="discussion-item-header f5 text-normal">
+      <span class="discussion-item-icon">
+        <svg aria-hidden="true" class="octicon octicon-bookmark" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg>
+      </span>
+      This was referenced <relative-time datetime="2016-08-07T20:46:43Z">Aug 7, 2016</relative-time>
+    </h3>
+
+
+      <div class="discussion-item-rollup-ref">
+          <span class="State State--small ml-1 State--purple float-right" title="State: merged">
+              <svg aria-hidden="true" class="octicon octicon-git-pull-request" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+            Merged
+          </span>
+
+
+
+        <div class="discussion-item-header" id="ref-pullrequest-166459689">
+          <h4 class="discussion-item-ref-title">
+            <a href="/conda-forge/hdf5-feedstock/issues/28" class="title-link">
+              Add Fortran bindings
+
+              <span class="issue-num">
+                conda-forge/hdf5-feedstock#28
+              </span>
+</a>          </h4>
+        </div>
+      </div>
+
+      <div class="discussion-item-rollup-ref">
+          <span class="State State--small ml-1 State--red float-right" title="State: closed">
+                <svg aria-hidden="true" class="octicon octicon-issue-closed" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M7 10h2v2H7v-2zm2-6H7v5h2V4zm1.5 1.5l-1 1L12 9l4-4.5-1-1L12 7l-1.5-1.5zM8 13.7A5.71 5.71 0 0 1 2.3 8c0-3.14 2.56-5.7 5.7-5.7 1.83 0 3.45.88 4.5 2.2l.92-.92A6.947 6.947 0 0 0 8 1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7l-1.52 1.52c-.66 2.41-2.86 4.19-5.48 4.19v-.01z"/></svg>
+            Closed
+          </span>
+
+
+
+        <div class="discussion-item-header" id="ref-issue-175872898">
+          <h4 class="discussion-item-ref-title">
+            <a href="/brian-rose/climlab/issues/40" class="title-link">
+              fortran-compiled extensions don&#39;t work on Mac OSX if using gcc compilers installed by conda
+
+              <span class="issue-num">
+                brian-rose/climlab#40
+              </span>
+</a>          </h4>
+        </div>
+      </div>
+
+  </div>
+
+
+  
+  <div class="timeline-comment-wrapper js-comment-container">
+
+    
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a href="/brian-rose">
+      <img alt="@brian-rose" class="avatar rounded-1" height="44" src="https://avatars2.githubusercontent.com/u/9097307?v=3&amp;s=88" width="44" />
+    </a>
+
+</div>
+
+
+
+      
+
+<div id="issuecomment-245756005"
+     class="comment previewable-edit timeline-comment js-comment js-task-list-container
+                     "
+     data-body-version="84cd66d1e4b5ebd590aeb824cf06c2f3">
+
+  
+<div class="timeline-comment-header">
+  <div class="timeline-comment-actions">
+
+
+  </div>
+
+    
+
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+    <strong>
+        <a href="/brian-rose" class="author">brian-rose</a>
+        
+    </strong>
+
+    commented
+
+    <a href="#issuecomment-245756005" class="timestamp"><relative-time datetime="2016-09-08T22:02:50Z">Sep 8, 2016</relative-time></a>
+
+
+  </h3>
+</div>
+
+
+  <div class="edit-comment-hide">
+    <table class="d-block">
+      <tbody class="d-block">
+        <tr class="d-block">
+          <td class="d-block comment-body markdown-body  js-comment-body">
+              <p>Thanks <a href="https://github.com/mingwandroid" class="user-mention">@mingwandroid</a> for the info! I was able to implement a workaround for OSX in my package that depends on F2PY builds, using your <code>install_name_tool</code> solution on the compiled *.so objects:<br>
+<a href="https://github.com/brian-rose/climlab/pull/41" class="issue-link js-issue-link" data-url="https://github.com/brian-rose/climlab/issues/41" data-id="175874457" data-error-text="Failed to load issue title" data-permission-text="Issue title is private">brian-rose/climlab#41</a></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      
+
+<div class="comment-reactions  js-reactions-container "
+
+    >
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  
+  
+
+
+      
+  <div class="discussion-item discussion-item-ref">
+    <h3 class="discussion-item-header f5 text-normal" id="ref-commit-d2d7fad">
+      <span class="discussion-item-icon">
+        <svg aria-hidden="true" class="octicon octicon-bookmark" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg>
+      </span>
+
+        <img src="https://avatars0.githubusercontent.com/u/4160723?v=3&amp;s=32" alt="@benbovy" height="16" width="16" class="avatar">
+        <a href="/benbovy" class="author">benbovy</a>
+
+        added a commit
+          to benbovy/jupyter-fortran-kernel
+        that referenced
+        this issue
+
+      <a href="#ref-commit-d2d7fad" class="timestamp">
+        <relative-time datetime="2017-02-01T14:14:28Z">Feb 1, 2017</relative-time>
+      </a>
+    </h3>
+
+    <table class="timeline-commits">
+      
+<tr class="commit js-details-container Details">
+
+  <td class="commit-icon">
+    <svg aria-hidden="true" class="octicon octicon-git-commit" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"/></svg>
+  </td>
+
+  <td class="commit-gravatar no-wrap text-right">
+    
+
+  <a href="/benbovy" class="d-inline-block">
+    <img src="https://avatars0.githubusercontent.com/u/4160723?v=3&amp;s=32" width="16" height="16" class="avatar avatar-small" alt="@benbovy">
+  </a>
+
+  </td>
+
+  <td class="commit-author">
+    <strong>
+  <a href="/benbovy" class="author">benbovy</a>
+</strong>
+  </td>
+
+  <td class="commit-message">
+    <code><a href="/benbovy/jupyter-fortran-kernel/commit/d2d7fade0fc56c4d542e7a6e815e9c430d2b1085" class="message" data-pjax="true" title="See https://github.com/ContinuumIO/anaconda-issues/issues/739">fix rpath when libgfortran is installed with conda</a></code>
+
+      <span class="hidden-text-expander inline">
+        <button type="button" class="ellipsis-expander js-details-target">&hellip;</button>
+      </span>
+      <div class="commit-desc"><pre>See <a href="https://github.com/ContinuumIO/anaconda-issues/issues/739" class="issue-link js-issue-link" data-url="https://github.com/ContinuumIO/anaconda-issues/issues/739" data-id="146700312" data-error-text="Failed to load issue title" data-permission-text="Issue title is private">ContinuumIO/anaconda-issues#739</a></pre></div>
+
+  </td>
+
+  <td class="commit-sig-status">
+    
+
+  </td>
+
+  <td class="commit-ci-status">
+  </td>
+
+  <td class="commit-meta">
+    <code><a href="/benbovy/jupyter-fortran-kernel/commit/d2d7fade0fc56c4d542e7a6e815e9c430d2b1085" class="commit-id">d2d7fad</a></code>
+  </td>
+</tr>
+
+    </table>
+  </div>
+
+
+
+
+      
+  <div class="discussion-item discussion-item-ref">
+    <h3 class="discussion-item-header f5 text-normal" id="ref-commit-b71fa3b">
+      <span class="discussion-item-icon">
+        <svg aria-hidden="true" class="octicon octicon-bookmark" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg>
+      </span>
+
+        <img src="https://avatars3.githubusercontent.com/u/5673711?v=3&amp;s=32" alt="@mdpiper" height="16" width="16" class="avatar">
+        <a href="/mdpiper" class="author">mdpiper</a>
+
+        added a commit
+          to csdms/bmi-f90
+        that referenced
+        this issue
+
+      <a href="#ref-commit-b71fa3b" class="timestamp">
+        <relative-time datetime="2017-03-10T03:23:17Z">Mar 9, 2017</relative-time>
+      </a>
+    </h3>
+
+    <table class="timeline-commits">
+      
+<tr class="commit js-details-container Details">
+
+  <td class="commit-icon">
+    <svg aria-hidden="true" class="octicon octicon-git-commit" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"/></svg>
+  </td>
+
+  <td class="commit-gravatar no-wrap text-right">
+    
+
+  <a href="/mdpiper" class="d-inline-block">
+    <img src="https://avatars3.githubusercontent.com/u/5673711?v=3&amp;s=32" width="16" height="16" class="avatar avatar-small" alt="@mdpiper">
+  </a>
+
+  </td>
+
+  <td class="commit-author">
+    <strong>
+  <a href="/mdpiper" class="author">mdpiper</a>
+</strong>
+  </td>
+
+  <td class="commit-message">
+    <code><a href="/csdms/bmi-f90/commit/b71fa3bc9e8cd538770700eb7a36b859b0d78738" class="message" data-pjax="true" title="I made a script to update the rpaths of the test executables, which were
+failing on Travis, using the MacOS `install_name_tool` command.
+
+See https://github.com/ContinuumIO/anaconda-issues/issues/739#issuecomment-238101203.">Update rpaths on MacOS</a></code>
+
+      <span class="hidden-text-expander inline">
+        <button type="button" class="ellipsis-expander js-details-target">&hellip;</button>
+      </span>
+      <div class="commit-desc"><pre>I made a script to update the rpaths of the test executables, which were
+failing on Travis, using the MacOS `install_name_tool` command.
+
+See <a href="https://github.com/ContinuumIO/anaconda-issues/issues/739#issuecomment-238101203" class="issue-link js-issue-link" data-url="https://github.com/ContinuumIO/anaconda-issues/issues/739" data-id="146700312" data-error-text="Failed to load issue title" data-permission-text="Issue title is private">ContinuumIO/anaconda-issues#739 (comment)</a>.</pre></div>
+
+  </td>
+
+  <td class="commit-sig-status">
+    
+
+  </td>
+
+  <td class="commit-ci-status">
+  </td>
+
+  <td class="commit-meta">
+    <code><a href="/csdms/bmi-f90/commit/b71fa3bc9e8cd538770700eb7a36b859b0d78738" class="commit-id">b71fa3b</a></code>
+  </td>
+</tr>
+
+    </table>
+  </div>
+
+
+
+
+      
+  <div class="discussion-item discussion-item-ref">
+    <h3 class="discussion-item-header f5 text-normal" id="ref-commit-a5f67eb">
+      <span class="discussion-item-icon">
+        <svg aria-hidden="true" class="octicon octicon-bookmark" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg>
+      </span>
+
+        <img src="https://avatars3.githubusercontent.com/u/5673711?v=3&amp;s=32" alt="@mdpiper" height="16" width="16" class="avatar">
+        <a href="/mdpiper" class="author">mdpiper</a>
+
+        added a commit
+          to csdms/bmi-fortran
+        that referenced
+        this issue
+
+      <a href="#ref-commit-a5f67eb" class="timestamp">
+        <relative-time datetime="2017-03-29T22:41:08Z">Mar 29, 2017</relative-time>
+      </a>
+    </h3>
+
+    <table class="timeline-commits">
+      
+<tr class="commit js-details-container Details">
+
+  <td class="commit-icon">
+    <svg aria-hidden="true" class="octicon octicon-git-commit" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"/></svg>
+  </td>
+
+  <td class="commit-gravatar no-wrap text-right">
+    
+
+  <a href="/mdpiper" class="d-inline-block">
+    <img src="https://avatars3.githubusercontent.com/u/5673711?v=3&amp;s=32" width="16" height="16" class="avatar avatar-small" alt="@mdpiper">
+  </a>
+
+  </td>
+
+  <td class="commit-author">
+    <strong>
+  <a href="/mdpiper" class="author">mdpiper</a>
+</strong>
+  </td>
+
+  <td class="commit-message">
+    <code><a href="/csdms/bmi-fortran/commit/a5f67eb04b27d9efaeb38e3d58a4a5f0fefa6807" class="message" data-pjax="true" title="I made a script to update the rpaths of the test executables, which were
+failing on Travis, using the MacOS `install_name_tool` command.
+
+See https://github.com/ContinuumIO/anaconda-issues/issues/739#issuecomment-238101203.">Update rpaths on MacOS</a></code>
+
+      <span class="hidden-text-expander inline">
+        <button type="button" class="ellipsis-expander js-details-target">&hellip;</button>
+      </span>
+      <div class="commit-desc"><pre>I made a script to update the rpaths of the test executables, which were
+failing on Travis, using the MacOS `install_name_tool` command.
+
+See <a href="https://github.com/ContinuumIO/anaconda-issues/issues/739#issuecomment-238101203" class="issue-link js-issue-link" data-url="https://github.com/ContinuumIO/anaconda-issues/issues/739" data-id="146700312" data-error-text="Failed to load issue title" data-permission-text="Issue title is private">ContinuumIO/anaconda-issues#739 (comment)</a>.</pre></div>
+
+  </td>
+
+  <td class="commit-sig-status">
+    
+
+  </td>
+
+  <td class="commit-ci-status">
+  </td>
+
+  <td class="commit-meta">
+    <code><a href="/csdms/bmi-fortran/commit/a5f67eb04b27d9efaeb38e3d58a4a5f0fefa6807" class="commit-id">a5f67eb</a></code>
+  </td>
+</tr>
+
+    </table>
+  </div>
+
+
+
+
+
+
+
+<!-- Rendered timeline since 2017-03-29 15:41:08 -->
+<div id="partial-timeline-marker"
+      class="js-timeline-marker js-socket-channel js-updatable-content"
+      data-channel="issue:146700312"
+      data-url="/ContinuumIO/anaconda-issues/issues/739/show_partial?partial=issues%2Ftimeline_marker&amp;since=1490827268"
+      data-last-modified="Wed, 29 Mar 2017 22:41:08 GMT">
+
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/ContinuumIO/anaconda-issues/notifications/mark?ids=134825240" class="d-none js-timeline-marker-form" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="qHNePjgsrme9FJi+cGlGCv/Pd4VXRfeOzKFY1hHzbTUQpiKd0FIMoRiFyD3urVlhT6kx/dgeTMZ90bYjCmnXGQ==" /></div>
+</form></div>
+
+
+        </div>
+
+          <div class="discussion-timeline-actions">
+                <div class="flash flash-warn mt-3">
+    <a href="/join?source=comment-repo" class="btn btn-primary" rel="nofollow">Sign up for free</a>
+    <strong>to join this conversation on GitHub</strong>.
+    Already have an account?
+    <a href="/login?return_to=https%3A%2F%2Fgithub.com%2FContinuumIO%2Fanaconda-issues%2Fissues%2F739" rel="nofollow">Sign in to comment</a>
+</div>
+
+
+          </div>
+      </div>
+
+    </div>
+    <div class="clear"></div>
+  </div>
+
+</div>
+
+
+  </div>
+  <div class="modal-backdrop js-touch-events"></div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+
+      
+<div class="container site-footer-container">
+  <div class="site-footer " role="contentinfo">
+    <ul class="site-footer-links float-right">
+        <li><a href="https://github.com/contact" data-ga-click="Footer, go to contact, text:contact">Contact GitHub</a></li>
+      <li><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
+      <li><a href="https://shop.github.com" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
+        <li><a href="https://github.com/blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a href="https://github.com/about" data-ga-click="Footer, go to about, text:about">About</a></li>
+
+    </ul>
+
+    <a href="https://github.com" aria-label="Homepage" class="site-footer-mark" title="GitHub">
+      <svg aria-hidden="true" class="octicon octicon-mark-github" height="24" version="1.1" viewBox="0 0 16 16" width="24"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+</a>
+    <ul class="site-footer-links">
+      <li>&copy; 2017 <span title="0.59611s from github-fe144-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
+        <li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+        <li><a href="https://help.github.com" data-ga-click="Footer, go to help, text:help">Help</a></li>
+    </ul>
+  </div>
+</div>
+
+
+
+  <div id="ajax-error-message" class="ajax-error-message flash flash-error">
+    <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg>
+    <button type="button" class="flash-close js-flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+      <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+    </button>
+    You can't perform that action at this time.
+  </div>
+
+
+    
+    <script crossorigin="anonymous" integrity="sha256-Et4AtRk8GIBEiexgcRoPjSYMsZ4XT2c8itMa13P2888=" src="https://assets-cdn.github.com/assets/frameworks-12de00b5193c18804489ec60711a0f8d260cb19e174f673c8ad31ad773f6f3cf.js"></script>
+    <script async="async" crossorigin="anonymous" integrity="sha256-RxzCT0EPRethTgXhTxGeeueFEqdaNXksnP1uIDJytlg=" src="https://assets-cdn.github.com/assets/github-471cc24f410f45eb614e05e14f119e7ae78512a75a35792c9cfd6e203272b658.js"></script>
+    
+    
+    
+    
+  <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner d-none">
+    <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg>
+    <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+  </div>
+  <div class="facebox" id="facebox" style="display:none;">
+  <div class="facebox-popup">
+    <div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
+    </div>
+    <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
+      <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+    </button>
+  </div>
+</div>
+
+
+  </body>
+</html>
+
